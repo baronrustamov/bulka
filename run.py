@@ -20,6 +20,7 @@ import sys
 import dialogflow
 import time
 import datetime as dtm
+from telegram import ParseMode, MessageEntity, ChatAction
 from telegram.error import BadRequest, Unauthorized
 #from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackContext
 from telegram.utils.helpers import escape_markdown
@@ -67,17 +68,19 @@ def notify_admins(message):
             logging.warning('Admin chat_id %s unreachable', admin_id)
 
 botinfo = '''
-Hi there! 
-I'm ur helper bot
+Добро пожаловать в пекарню
+*"Между нами булочками"*
+[Наш сайт](http://54.189.52.114/)
 '''
 
 def start(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     reply = botinfo
-    bot.send_message(chat_id=chat_id, text=reply)
+    bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.MARKDOWN_V2)
     reply1 = dialogflow_event_request('TELEGRAM_WELCOME', chat_id)
     bot.send_message(chat_id=chat_id, text=reply1)
+    #update.message.reply_text("hi", quote=True)
 
 '''    
 def tghelp(bot, update):
