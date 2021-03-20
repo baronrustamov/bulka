@@ -30,8 +30,12 @@ from google.cloud import vision_v1
 from google.cloud.vision_v1 import types
 
 #from util import get_reply_id, reply_or_edit, get_text_not_in_entities, github_issues, rate_limit, rate_limit_tracker
-
-
+'''
+from telegram import ParseMode, MessageEntity, ChatAction, Update, Bot
+from telegram.error import BadRequest, Unauthorized
+from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackContext
+from telegram.utils.helpers import escape_markdown
+'''
 from telegram.ext import Updater, CommandHandler, Filters, \
     MessageHandler, InlineQueryHandler
 import telegram
@@ -68,19 +72,19 @@ def notify_admins(message):
             logging.warning('Admin chat_id %s unreachable', admin_id)
 
 botinfo = '''
-Добро пожаловать в пекарню
-*"Между нами булочками"*
-[Наш сайт](http://54.189.52.114/)
+<u>Добро пожаловать в пекарню</u>
+<b>»Между нами булочками!</b>
+<a href="http://54.189.52.114">Заходите на наш сайт</a>
 '''
 
 def start(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     reply = botinfo
-    bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.MARKDOWN_V2)
+    bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.HTML, disable_web_page_preview=False)
     reply1 = dialogflow_event_request('TELEGRAM_WELCOME', chat_id)
     bot.send_message(chat_id=chat_id, text=reply1)
-    #update.message.reply_text("hi", quote=True)
+
 
 '''    
 def tghelp(bot, update):
@@ -291,10 +295,10 @@ notify_admins('Bot started')
 
 # set commands
 UPDATER.bot.set_my_commands([
-    ('docs', 'Send the link to the docs. Use in PM.'),
-    ('wiki', 'Send the link to the wiki. Use in PM.'),
+    ('/start', 'Запускает бота заново'),
+    ('/help', 'Помощь в использовании бота.'),
     ('hints', 'List available tag hints. Use in PM.'),
-    ('help', 'Send the link to this bots README. Use in PM.'),
+    #('help', 'Send the link to this bots README. Use in PM.'),
 ])
 
 # Add telegram handlers
