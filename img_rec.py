@@ -25,7 +25,7 @@ from cdqa.utils.converters import pdf_converter
 '''
 result_urls = []
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'vidkey.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'bulkakey.json'
 
 client = vision_v1.ImageAnnotatorClient()
 #FILE_NAME = 'file_0.jpg'
