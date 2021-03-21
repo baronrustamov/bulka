@@ -72,8 +72,8 @@ def notify_admins(message):
             logging.warning('Admin chat_id %s unreachable', admin_id)
 
 botinfo = '''
-<u>Добро пожаловать в пекарню</u>
-<b>»Между нами булочками!</b>
+Добро пожаловать в пекарню
+<b>Между нами булочками!</b>
 <a href="http://54.189.52.114">Заходите на наш сайт</a>
 '''
 
