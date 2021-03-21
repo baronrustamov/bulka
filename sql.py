@@ -1,7 +1,7 @@
 import pymysql.cursors
 
 # Connect to the database
-connection = pymysql.connect(host='34.220.146.118',
+connection = pymysql.connect(host='54.189.52.114',
                              user='ubuntu',
                              password='ubuntu',
                              database='mainbulka',
@@ -19,7 +19,7 @@ connection = pymysql.connect(host='34.220.146.118',
 
 with connection.cursor() as cursor:
     # Read a single record
-    sql = "SELECT `customerNumber`, `phone`, `contactFirstName` FROM `customers` WHERE `ifdeliver`=%s"
-    cursor.execute(sql, ('1',))
+    sql = "SELECT * FROM `customers` WHERE 1"
+    cursor.execute(sql)
     result = cursor.fetchall()
     print(result)
