@@ -107,9 +107,9 @@ def tghelp(bot, update):
     #reply = dialogflow_event_request('TELEGRAM_WELCOME', chat_id)
     #bot.send_message(chat_id=chat_id, text=reply)
     update.message.reply_text(
-        'The on-topic group is [here](https://telegram.me/pythontelegrambotgroup). '
-        'Come join us!',
-        quote=True, disable_web_page_preview=False)#, parse_mode=ParseMode.MARKDOWN)
+        'Наш сайт [здесь](http://54.189.52.114/). '
+        'Присоединяйся!',
+        quote=True, disable_web_page_preview=False, parse_mode=ParseMode.MARKDOWN)
 
 def text(bot, update):
     chat_id = update.message.chat_id
@@ -298,7 +298,6 @@ UPDATER.bot.set_my_commands([
     ('/start', 'Запускает бота заново'),
     ('/help', 'Помощь в использовании бота.'),
     ('hints', 'List available tag hints. Use in PM.'),
-    #('help', 'Send the link to this bots README. Use in PM.'),
 ])
 
 # Add telegram handlers
@@ -318,8 +317,10 @@ DISPATCHER.add_handler(img_handler)
 
 TEXT_HANDLER = MessageHandler(Filters.text, text)
 DISPATCHER.add_handler(TEXT_HANDLER)
+
 INLINE_HANDLER = InlineQueryHandler(inline)
 DISPATCHER.add_handler(INLINE_HANDLER)
+
 if WIT_TOKEN:
     VOICE_HANDLER = MessageHandler(Filters.voice, voice)
     DISPATCHER.add_handler(VOICE_HANDLER)
