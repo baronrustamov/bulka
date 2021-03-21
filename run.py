@@ -107,8 +107,8 @@ def tghelp(bot, update):
     #reply = dialogflow_event_request('TELEGRAM_WELCOME', chat_id)
     #bot.send_message(chat_id=chat_id, text=reply)
     update.message.reply_text(
-        'The on-topic group is [here](https://telegram.me/pythontelegrambotgroup). '
-        'Come join us!',
+        'Наш сайт [здесь](http://54.189.52.114). '
+        'Присоединяйся!',
         quote=True, disable_web_page_preview=False)#, parse_mode=ParseMode.MARKDOWN)
 
 def text(bot, update):
