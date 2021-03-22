@@ -29,7 +29,7 @@ with connection.cursor() as cursor:
     print(res1)
     res2 = json.loads(res1)
     print(res2)
-    #res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
+    res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
     for i in range(1):
         print(res2[i]["post_title"] + ':\n' + res2[i]["post_excerpt"])
     #print(res3)
