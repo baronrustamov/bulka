@@ -4,7 +4,6 @@
     <list default="true" id="5799286c-07d6-4f94-8bb6-41b216d70f38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sqlwoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/sqlwoo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616404470850</updated>
-      <workItem from="1616404477229" duration="7525000" />
+      <workItem from="1616404477229" duration="7743000" />
     </task>
     <task id="LOCAL-00001" summary="cmt">
       <created>1616406308195</created>
@@ -169,7 +168,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bulka$run.coverage" NAME="run Coverage Results" MODIFIED="1616408825805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/bulka$sql.coverage" NAME="sql Coverage Results" MODIFIED="1616411944061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bulka$sql.coverage" NAME="sql Coverage Results" MODIFIED="1616412212414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bulka$sqlwoo.coverage" NAME="sqlwoo Coverage Results" MODIFIED="1616411664683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -26,6 +26,14 @@ with connection.cursor() as cursor:
     print(result)
     count = cursor.rowcount
     print(count)
+    i = 0
+    while i < count:
+        print(result[i])
+        i = i + 1
+    i = 0
+    while i < count:
+        print(result[i]["productName"])
+        i = i + 1
     for row in cursor:
         print(row)
 cursor.close()
