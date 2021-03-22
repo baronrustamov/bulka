@@ -22,9 +22,17 @@ with connection.cursor() as cursor:
     # Read a single record
     sql = "SELECT `post_title`, `post_excerpt` FROM `wp_posts` WHERE `post_type` IN ('product')"
     cursor.execute(sql)
+    print(cursor.description)
     result = cursor.fetchall()
     print(result)
-    result = json.JSONEncoder().encode(result)
-    print(result)
-    result = json.loads(result)
-    print(result)
+    res1 = json.JSONEncoder().encode(result)
+    print(res1)
+    res2 = json.loads(res1)
+    print(res2)
+    res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
+    print(res3)
+    #dbinfo = pymysql.Connection.close(connection)
+    #out = result[0]
+    #print(out)
+cursor.close()
+connection.close()

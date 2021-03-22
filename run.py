@@ -51,6 +51,8 @@ from lang import NOT_UNDERSTOOD
 import img_rec
 from img_rec import recog
 
+import sqlwoo
+
 '''
 import const
 from components import inlinequeries, taghints
@@ -93,6 +95,13 @@ def tghelp(bot, update):
     reply = dialogflow_event_request('TELEGRAM_WELCOME', chat_id)
     bot.send_message(chat_id=chat_id, text=reply)
 '''
+
+def productslist(bot, update):
+    chat_id = update.message.chat_id
+    bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
+    reply = sqlwoo.res3
+    bot.send_message(chat_id=chat_id, text=reply)
+    #update.message.reply_text("Okay.", quote=True)
 
 def sandwich(bot, update):
     chat_id = update.message.chat_id
@@ -297,7 +306,7 @@ notify_admins('Bot started')
 UPDATER.bot.set_my_commands([
     ('/start', 'Запускает бота заново'),
     ('/help', 'Помощь в использовании бота.'),
-    ('hints', 'List available tag hints. Use in PM.'),
+    ('/products', 'Список товаров в продаже'),
 ])
 
 # Add telegram handlers
@@ -306,6 +315,9 @@ DISPATCHER.add_handler(START_HANDLER)
 
 TGHELP_HANDLER = CommandHandler('help', tghelp)
 DISPATCHER.add_handler(TGHELP_HANDLER)
+
+PRODUCTS_LIST = CommandHandler('products', productslist)
+DISPATCHER.add_handler(PRODUCTS_LIST)
 
 sandwich_handler = MessageHandler(Filters.regex(r'(?i)[\s\S]*?((sudo )?make me a sandwich)[\s\S]*?'),
                                       sandwich)
