@@ -25,15 +25,14 @@ with connection.cursor() as cursor:
     print(cursor.description)
     result = cursor.fetchall()
     print(result)
-
     res1 = json.JSONEncoder().encode(result)
     print(res1)
     res2 = json.loads(res1)
     print(res2)
-    res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
+    #res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
     for i in range(1):
         print(res2[i]["post_title"] + ':\n' + res2[i]["post_excerpt"])
-    print(res3)
+    #print(res3)
     #dbinfo = pymysql.Connection.close(connection)
     #out = result[0]
     #print(out)
