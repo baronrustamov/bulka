@@ -17,7 +17,7 @@ connection = pymysql.connect(host='54.189.52.114',
     # connection is not autocommit by default. So you must commit to save
     # your changes.
     #connection.commit()
-
+cur = connection.cursor()
 with connection.cursor() as cursor:
     # Read a single record
     sql = "SELECT `post_title`, `post_excerpt` FROM `wp_posts` WHERE `post_type` IN ('product')"
@@ -29,13 +29,20 @@ with connection.cursor() as cursor:
     print(res1)
     res2 = json.loads(res1)
     print(res2)
+    res4 = json.dumps(res1)
+    print(res4)
     res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
-    for i in range(1):
+    for i in range(4):
         print(res2[i]["post_title"] + ':\n' + res2[i]["post_excerpt"])
     #print(res3)
     #dbinfo = pymysql.Connection.close(connection)
     #out = result[0]
     #print(out)
     print(pymysql.get_client_info())
+
+cur.execute(sql)
+for row in cur:
+    print(row)
+
 cursor.close()
 connection.close()
