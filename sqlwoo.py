@@ -34,5 +34,6 @@ with connection.cursor() as cursor:
     #dbinfo = pymysql.Connection.close(connection)
     #out = result[0]
     #print(out)
+    print(pymysql.get_client_info())
 cursor.close()
 connection.close()
