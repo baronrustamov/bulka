@@ -24,24 +24,14 @@ from telegram import ParseMode, MessageEntity, ChatAction
 from telegram.error import BadRequest, Unauthorized
 #from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackContext
 from telegram.utils.helpers import escape_markdown
-
 from google.protobuf.json_format import MessageToJson, MessageToDict, Parse
 from google.cloud import vision_v1
 from google.cloud.vision_v1 import types
 
-#from util import get_reply_id, reply_or_edit, get_text_not_in_entities, github_issues, rate_limit, rate_limit_tracker
-'''
-from telegram import ParseMode, MessageEntity, ChatAction, Update, Bot
-from telegram.error import BadRequest, Unauthorized
-from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackContext
-from telegram.utils.helpers import escape_markdown
-'''
 from telegram.ext import Updater, CommandHandler, Filters, \
     MessageHandler, InlineQueryHandler
 import telegram
 from telegram import InlineQueryResultArticle, InputTextMessageContent
-
-#from telegram import ParseMode, MessageEntity, ChatAction, Update, Bot, InlineQueryResultArticle, InputTextMessageContent
 
 from wit import Wit
 from wit.wit import WitError
@@ -53,6 +43,14 @@ from img_rec import recog
 
 import sqlwoo
 
+'''
+#from util import get_reply_id, reply_or_edit, get_text_not_in_entities, github_issues, rate_limit, rate_limit_tracker
+#from telegram import ParseMode, MessageEntity, ChatAction, Update, Bot, InlineQueryResultArticle, InputTextMessageContent
+from telegram import ParseMode, MessageEntity, ChatAction, Update, Bot
+from telegram.error import BadRequest, Unauthorized
+from telegram.ext import CommandHandler, Updater, MessageHandler, Filters, CallbackContext
+from telegram.utils.helpers import escape_markdown
+'''
 '''
 import const
 from components import inlinequeries, taghints
