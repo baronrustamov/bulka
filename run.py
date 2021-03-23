@@ -94,14 +94,36 @@ def tghelp(bot, update):
     bot.send_message(chat_id=chat_id, text=reply)
 '''
 
-def productslist(bot, update):
+def subscripslist(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-    reply = sqlwoo.res3
-    bot.send_message(chat_id=chat_id, text=reply)
+    connection = pymysql.connect(host='54.189.52.114',
+                                 user='ubuntu',
+                                 password='zyrzak-kizfa4-nAcdog',
+                                 database='mainbulka',
+                                 cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        # Read a single record
+        sql = "SELECT `contactFirstName`, `contactLastName`, `phone`, `addressLine1` FROM mainbulka.customers"
+        cursor.execute(sql)
+        res = cursor.fetchall()
+        res1 = json.JSONEncoder().encode(res)
+        res2 = json.loads(res1)
+        count = cursor.rowcount
+        reply = ''
+        i = 0
+        for i in range(0, count, 1):
+            reply = reply + '<b>' + res2[i]["contactFirstName"] \
+                    +' ' + res2[i]["contactLastName"] +'</b>' \
+                    + ':\n' + res2[i]["phone"] +'\n'\
+                    + res2[i]["addressLine1"] + '\n' + '\n'
+        cursor.close()
+    connection.close()
+    bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.HTML)
     #update.message.reply_text("Okay.", quote=True)
 
-def suscripslist(bot, update):
+def productslist(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     connection = pymysql.connect(host='54.189.52.114',
@@ -118,10 +140,10 @@ def suscripslist(bot, update):
         res1 = json.JSONEncoder().encode(res)
         res2 = json.loads(res1)
         count = cursor.rowcount
-        #res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
         reply = ''
+        i = 0
         for i in range(0,count,1):
-            reply = reply + res2[i]["post_title"] + ':\n' + res2[i]["post_excerpt"] + '\n'
+            reply = reply +'<b>'+ res2[i]["post_title"] +'</b>' + ':\n' + res2[i]["post_excerpt"] + '\n'+'\n'
         #print(res3)
         # dbinfo = pymysql.Connection.close(connection)
         # out = result[0]
@@ -129,7 +151,7 @@ def suscripslist(bot, update):
         print(pymysql.get_client_info())
         cursor.close()
     connection.close()
-    bot.send_message(chat_id=chat_id, text=reply)
+    bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.HTML)
     #update.message.reply_text("Okay.", quote=True)
 
 def sandwich(bot, update):
@@ -348,7 +370,7 @@ DISPATCHER.add_handler(TGHELP_HANDLER)
 PRODUCTS_LIST = CommandHandler('products', productslist)
 DISPATCHER.add_handler(PRODUCTS_LIST)
 
-SUBSCRIPTIONS_LIST = CommandHandler('subs', suscripslist)
+SUBSCRIPTIONS_LIST = CommandHandler('subs', subscripslist)
 DISPATCHER.add_handler(SUBSCRIPTIONS_LIST)
 
 sandwich_handler = MessageHandler(Filters.regex(r'(?i)[\s\S]*?((sudo )?make me a sandwich)[\s\S]*?'),
