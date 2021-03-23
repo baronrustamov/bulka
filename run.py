@@ -120,7 +120,8 @@ def subscripslist(bot, update):
                     + res2[i]["addressLine1"] + '\n' + '\n'
         cursor.close()
     connection.close()
-    bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.HTML)
+    if chat_id is "-485348087":
+        bot.send_message(chat_id=chat_id, text=reply, parse_mode=ParseMode.HTML)
     #update.message.reply_text("Okay.", quote=True)
 
 def productslist(bot, update):
