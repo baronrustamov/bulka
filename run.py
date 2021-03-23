@@ -41,7 +41,7 @@ from lang import NOT_UNDERSTOOD
 import img_rec
 from img_rec import recog
 
-import sqlwoo
+import pymysql.cursors
 
 '''
 #from util import get_reply_id, reply_or_edit, get_text_not_in_entities, github_issues, rate_limit, rate_limit_tracker
@@ -98,6 +98,37 @@ def productslist(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     reply = sqlwoo.res3
+    bot.send_message(chat_id=chat_id, text=reply)
+    #update.message.reply_text("Okay.", quote=True)
+
+def suscripslist(bot, update):
+    chat_id = update.message.chat_id
+    bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
+    connection = pymysql.connect(host='54.189.52.114',
+                                 user='ubuntu',
+                                 password='zyrzak-kizfa4-nAcdog',
+                                 database='wordpress',
+                                 cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        # Read a single record
+        sql = "SELECT `post_title`, `post_excerpt` FROM `wp_posts` WHERE `post_type` IN ('product')"
+        cursor.execute(sql)
+        res = cursor.fetchall()
+        res1 = json.JSONEncoder().encode(res)
+        res2 = json.loads(res1)
+        count = cursor.rowcount
+        #res3 = res2[0]["post_title"] + ':\n' + res2[0]["post_excerpt"]
+        reply = ''
+        for i in range(0,count,1):
+            reply = reply + res2[i]["post_title"] + ':\n' + res2[i]["post_excerpt"] + '\n'
+        #print(res3)
+        # dbinfo = pymysql.Connection.close(connection)
+        # out = result[0]
+        # print(out)
+        print(pymysql.get_client_info())
+        cursor.close()
+    connection.close()
     bot.send_message(chat_id=chat_id, text=reply)
     #update.message.reply_text("Okay.", quote=True)
 
@@ -316,6 +347,9 @@ DISPATCHER.add_handler(TGHELP_HANDLER)
 
 PRODUCTS_LIST = CommandHandler('products', productslist)
 DISPATCHER.add_handler(PRODUCTS_LIST)
+
+SUBSCRIPTIONS_LIST = CommandHandler('subs', suscripslist)
+DISPATCHER.add_handler(SUBSCRIPTIONS_LIST)
 
 sandwich_handler = MessageHandler(Filters.regex(r'(?i)[\s\S]*?((sudo )?make me a sandwich)[\s\S]*?'),
                                       sandwich)

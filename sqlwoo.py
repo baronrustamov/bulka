@@ -4,7 +4,7 @@ import json
 # Connect to the database
 connection = pymysql.connect(host='54.189.52.114',
                              user='ubuntu',
-                             password='ubuntu',
+                             password='zyrzak-kizfa4-nAcdog',
                              database='wordpress',
                              cursorclass=pymysql.cursors.DictCursor)
 
@@ -18,6 +18,7 @@ connection = pymysql.connect(host='54.189.52.114',
     # your changes.
     #connection.commit()
 cur = connection.cursor()
+
 with connection.cursor() as cursor:
     # Read a single record
     sql = "SELECT `post_title`, `post_excerpt` FROM `wp_posts` WHERE `post_type` IN ('product')"
