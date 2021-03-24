@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5799286c-07d6-4f94-8bb6-41b216d70f38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../telegram-bot" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectId" id="1q6eSiuMyG54OI3ROQbrdrNE8GX" />
@@ -157,7 +157,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616404470850</updated>
       <workItem from="1616404477229" duration="17126000" />
-      <workItem from="1616434053724" duration="25833000" />
+      <workItem from="1616434053724" duration="25985000" />
     </task>
     <task id="LOCAL-00001" summary="cmt">
       <created>1616406308195</created>
