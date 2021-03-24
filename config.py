@@ -17,6 +17,7 @@ OPTIONS.add_argument('--DIALOGFLOW_KEY', help='Specify Dialogflow Key Path', req
 OPTIONS.add_argument('--WIT_TOKEN', help='Specify Wit Token', default='')
 OPTIONS.add_argument('--LANG', help='Specify language cod', default='en')
 OPTIONS.add_argument('--log', help='Set logging value', default='DEBUG')
+OPTIONS.add_argument('--DBCRED', help='DB Credentials')
 ARGUMENTS = OPTIONS.parse_args()
 
 # Logging configs
@@ -26,6 +27,9 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s.',
 # Telegram configs
 TELEGRAM_TOKEN = ARGUMENTS.TELEGRAM_TOKEN
 ADMIN_CHAT_ID = ARGUMENTS.ADMIN_CHAT_ID
+
+#DB Config
+DBCRED = ARGUMENTS.DBCRED
 
 # Dialogflow configs
 DIALOGFLOW_KEY = ARGUMENTS.DIALOGFLOW_KEY

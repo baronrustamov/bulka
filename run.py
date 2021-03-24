@@ -36,7 +36,7 @@ from telegram import InlineQueryResultArticle, InputTextMessageContent
 from wit import Wit
 from wit.wit import WitError
 
-from config import TELEGRAM_TOKEN, ADMIN_CHAT_ID, DIALOGFLOW_KEY, WIT_TOKEN, LANG
+from config import TELEGRAM_TOKEN, ADMIN_CHAT_ID, DIALOGFLOW_KEY, WIT_TOKEN, LANG, DBCRED
 from lang import NOT_UNDERSTOOD
 import img_rec
 from img_rec import recog
@@ -97,9 +97,9 @@ def tghelp(bot, update):
 def subscripslist(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-    connection = pymysql.connect(host='54.189.52.114',
-                                 user='ubuntu',
-                                 password='zyrzak-kizfa4-nAcdog',
+    connection = pymysql.connect(host=dbhost,
+                                 user=dbuser,
+                                 password=dbpassword,
                                  database='mainbulka',
                                  cursorclass=pymysql.cursors.DictCursor)
 
@@ -129,9 +129,9 @@ def subscripslist(bot, update):
 def productslist(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-    connection = pymysql.connect(host='54.189.52.114',
-                                 user='ubuntu',
-                                 password='zyrzak-kizfa4-nAcdog',
+    connection = pymysql.connect(host=dbhost,
+                                 user=dbuser,
+                                 password=dbpassword,
                                  database='wordpress',
                                  cursorclass=pymysql.cursors.DictCursor)
 
@@ -270,7 +270,7 @@ def voice(bot, update):
     chat_id = update.message.chat_id
     bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     new_file = BOT.get_file(update.message.voice.file_id)
-    file_audio_from = tempfile.mkstemp(suffix=".oga")
+    file_audio_from = tempfile.mkstemp(suffix=".ogg")
     file_audio_to = tempfile.mkstemp(suffix=".mp3")
     os.close(file_audio_from[0])
     os.close(file_audio_to[0])
@@ -344,6 +344,12 @@ except FileNotFoundError:
     sys.exit(-1)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = DIALOGFLOW_KEY
 DIALOGFLOW = dialogflow.SessionsClient()
+
+
+#Init DB Connection
+dbhost = json.load(open(DBCRED))["dbhost"]
+dbuser = json.load(open(DBCRED))["dbuser"]
+dbpassword = json.load(open(DBCRED))["dbpassword"]
 
 # Init WIT.ai
 if WIT_TOKEN:
