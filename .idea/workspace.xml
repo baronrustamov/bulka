@@ -25,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../telegram-bot" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectId" id="1q6eSiuMyG54OI3ROQbrdrNE8GX" />
@@ -157,7 +157,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616404470850</updated>
       <workItem from="1616404477229" duration="17126000" />
-      <workItem from="1616434053724" duration="25296000" />
+      <workItem from="1616434053724" duration="25833000" />
     </task>
     <task id="LOCAL-00001" summary="cmt">
       <created>1616406308195</created>
