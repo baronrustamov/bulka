@@ -3,8 +3,8 @@ import json
 
 # Connect to the database
 connection = pymysql.connect(host='54.189.52.114',
-                             user='ubuntu',
-                             password='zyrzak-kizfa4-nAcdog',
+                             user='',
+                             password='',
                              database='wordpress',
                              cursorclass=pymysql.cursors.DictCursor)
 
