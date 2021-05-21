@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bulka.iml" filepath="$PROJECT_DIR$/.idea/bulka.iml" />
       <module fileurl="file://$PROJECT_DIR$/../food-waste-bot/.idea/food-waste-bot.iml" filepath="$PROJECT_DIR$/../food-waste-bot/.idea/food-waste-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../myrep/.idea/myrep.iml" filepath="$PROJECT_DIR$/../myrep/.idea/myrep.iml" />
       <module fileurl="file://$PROJECT_DIR$/../telegram-bot/.idea/telegram-bot.iml" filepath="$PROJECT_DIR$/../telegram-bot/.idea/telegram-bot.iml" />
     </modules>
   </component>
